@@ -6,5 +6,10 @@
 
 <ion-content padding>
   The world is your oyster.
-  <ion-button routerLink="/tabs/home/detail">Next</ion-button>
+  <div>
+    <ion-button routerLink="/tabs/home/detail">Next</ion-button>
+  </div>
+  <div>
+    <ion-button (click)="logout()">Logout</ion-button>
+  </div>
 </ion-content>
