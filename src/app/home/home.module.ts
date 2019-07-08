@@ -13,7 +13,7 @@ import { DetailPage } from '../detail/detail.page';
     FormsModule,
     RouterModule.forChild([
       { path: '', component: HomePage },
-      { path: 'detail', loadChildren: './detail/detail.module#DetailPageModule' },
+      { path: 'detail', loadChildren: '../detail/detail.module#DetailPageModule' },
     ])
   ],
   declarations: [HomePage]

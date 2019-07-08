@@ -1,48 +1,55 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { HomePageModule } from "./../home/home.module";
+import { NgModule } from "@angular/core";
+import { RouterModule, Routes } from "@angular/router";
 
-import { TabsPage } from './tabs.page';
-import { HomePage } from '../home/home.page';
-import { AboutPage } from '../about/about.page';
-import { ContactPage } from '../contact/contact.page';
-import { DetailPage } from '../detail/detail.page';
+import { TabsPage } from "./tabs.page";
+import { HomePage } from "../home/home.page";
+import { AboutPage } from "../about/about.page";
+import { ContactPage } from "../contact/contact.page";
+import { DetailPage } from "../detail/detail.page";
 
 const routes: Routes = [
   {
-    path: 'tabs',
+    path: "tabs",
     component: TabsPage,
     children: [
       {
-        path: '',
-        redirectTo: '/tabs/(home:home)',
-        pathMatch: 'full',
+        path: "home",
+        children: [
+          {
+            path: "",
+            loadChildren: "./../home/home.module#HomePageModule"
+          },
+          {
+            path: "/detail",
+            loadChildren: "./../detail/detail.module#DetailPageModule"
+          }
+        ]
       },
       {
-        path: 'home',
-        outlet: 'home',
-        component: HomePage
+        path: "about",
+        children: [
+          {
+            path: "",
+            loadChildren: "./../about/about.module#AboutPageModule"
+          }
+        ]
       },
       {
-        path: 'detail',
-        outlet: 'home',
-        component: DetailPage
-      },
-      {
-        path: 'about',
-        outlet: 'about',
-        component: AboutPage
-      },
-      {
-        path: 'contact',
-        outlet: 'contact',
-        component: ContactPage
+        path: "contact",
+        children: [
+          {
+            path: "",
+            loadChildren: "./../contact/contact.module#ContactPageModule"
+          }
+        ]
       }
     ]
   },
   {
-    path: '',
-    redirectTo: '/tabs/(home:home)',
-    pathMatch: 'full'
+    path: "",
+    redirectTo: "/tabs/home",
+    pathMatch: "full"
   }
 ];
 
