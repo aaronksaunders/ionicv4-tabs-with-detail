@@ -21,7 +21,7 @@ const routes: Routes = [
             loadChildren: "./../home/home.module#HomePageModule"
           },
           {
-            path: "/detail",
+            path: "detail",
             loadChildren: "./../detail/detail.module#DetailPageModule"
           }
         ]
