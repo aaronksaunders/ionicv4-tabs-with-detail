@@ -12,7 +12,6 @@ export class HomePage {
   constructor(private router: Router, private auth: AuthenticationService) { }
   logout() {
     this.auth.setLoggedIn(false)
-    debugger;
     this.router.navigateByUrl("/login", { skipLocationChange: true });
   }
 }
